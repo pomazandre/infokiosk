@@ -1,0 +1,41 @@
+<p style="font-size: 45px; color: #008BBE; font-weight:700"> <img src="{{url}}" align="center"> {{caption}}
+</p>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="ui-g-1">
+            <button pButton type="button" label="Назад" routerLink="/" icon="fas fa-angle-double-left">
+            </button>
+        </div>
+        <div class="ui-g-10">
+        </div>
+    </div>
+
+    <p-table #dt [value]="persons" [scrollable]="true" scrollHeight="1150px">
+        <ng-template pTemplate="caption">
+            <div style="text-align: left">
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input pInputText type="text" size="50" placeholder="ФИО"
+                    (input)="dt.filter($event.target.value, 'name' )" style="width:auto">
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>должность</th>
+                <th>ФИО</th>
+                <th>телефон</th>
+                <th>кабинет</th>
+                <th>этаж</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-person>
+            <tr>
+                <td>{{person.position}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.phone}}</td>
+                <td>{{person.cabinet}}</td>
+                <td>{{person.stage}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div>
